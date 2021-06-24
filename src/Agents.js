@@ -1,7 +1,6 @@
 import React from "react";
 import './App.css';
 import data from "./homes.json";
-import { Details } from "./Details.js"
 import { useHistory } from 'react-router-dom';
 
 
@@ -18,7 +17,7 @@ export const Agents = () => {
         return (
                 <div key = {key}>
                     <p>House {key + 1}</p>
-                    <p><img className = "photo" src = {house.property.primaryImageUrl}></img></p>
+                    <p><img className = "photo" src = {house.property.primaryImageUrl} alt = ""></img></p>
                     <p>Email: {house.listingAgent.user.email}</p>
                     <p>Name: {house.listingAgent.user.firstName} {house.listingAgent.user.lastName}</p>
                     <p>Phone: {house.listingAgent.user.phone}</p>
@@ -26,7 +25,7 @@ export const Agents = () => {
                 </div>
             );
         })}
-        <button onClick={() => history.goBack()}>Go Back</button>
+        <button onClick={() => history.push('/details')}>Back to Details</button>
 
         </div>
 

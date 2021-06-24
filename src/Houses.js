@@ -1,7 +1,5 @@
 import React from "react";
 import './App.css';
-import data from "./homes.json";
-import { Details } from "./Details.js"
 import { useHistory } from 'react-router-dom';
 
 

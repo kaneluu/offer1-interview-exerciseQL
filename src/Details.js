@@ -24,11 +24,11 @@ export const Details = () => {
         </div>    
         <div>
         {data.map((house, key) =>{
-            if(filterCity.length != 0){
+            if(filterCity.length !== 0){
                 if(house.property.address.city.toLowerCase().startsWith(filterCity.toLowerCase())){
                     return (
                         <div>
-                    <p><img className = "photo" src = {house.property.primaryImageUrl}></img></p>
+                    <p><img className = "photo" src = {house.property.primaryImageUrl} alt = ""></img></p>
                     <h4>${house.price + " "}  ({house.state})</h4>
                     <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
                      located in {house.property.address.city}, {house.property.address.state}</p>
@@ -64,7 +64,7 @@ export const Details = () => {
             return (
                 <div key = {key}>
                     <p>House {key + 1}</p>
-                    <p><img className = "photo" src = {house.property.primaryImageUrl}></img></p>
+                    <p><img className = "photo" src = {house.property.primaryImageUrl} alt = ""></img></p>
                     <h4>${house.price + " "}  ({house.state})</h4>
                     <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
                      located in {house.property.address.city}, {house.property.address.state}</p>
@@ -76,7 +76,7 @@ export const Details = () => {
                 </div>
             );
         })}
-        <div className="filter"><button onClick={() => history.goBack()}>Go Back</button>
+        <div className="filter"><button onClick={() => history.push('/')}>Main Page</button>
         <button onClick={() => history.push('/agents')}>Contact Agents </button></div>
         </div>
         </header>
