@@ -28,7 +28,7 @@ class App extends Component{
           <Route path="/Escrows" exact>
             <Escrow/>
           </Route>
-          <Route path="Titles" exact>
+          <Route path="/Titles" exact>
             <Title/>
           </Route>
         </Switch>
