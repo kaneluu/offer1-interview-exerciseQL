@@ -44,6 +44,7 @@
 import React, {Component} from 'react';
 import {Houses} from "./Houses.js";
 import {Details} from "./Details.js";
+import {Agents} from "./Agents.js";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component{
@@ -61,6 +62,9 @@ class App extends Component{
 
           <Route path="/Details" exact>
             <Details/>
+          </Route>
+          <Route path="/Agents" exact>
+            <Agents/>
           </Route>
         </Switch>
       </Router>

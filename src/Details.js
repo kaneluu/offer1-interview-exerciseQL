@@ -63,20 +63,21 @@ export const Details = () => {
 
             return (
                 <div key = {key}>
+                    <p>House {key + 1}</p>
                     <p><img className = "photo" src = {house.property.primaryImageUrl}></img></p>
                     <h4>${house.price + " "}  ({house.state})</h4>
                     <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
                      located in {house.property.address.city}, {house.property.address.state}</p>
                     <p>Address: {house.property.address.addressLine1}, {house.property.address.addressLine2} {house.property.address.city}, {house.property.address.state}, {house.property.address.zip}</p>
                     <li>Type: {house.property.propertyType}</li>
+                    <li>Owner Type: {house.property.ownerType}</li>
                     <li>{house.property.numberBaths} Bathrooms</li>
                     <li>{house.property.numberBedrooms} Bedrooms</li>
-                    <p></p>
                 </div>
             );
         })}
-        <button onClick={() => history.goBack()}>Go Back</button>
-
+        <div className="filter"><button onClick={() => history.goBack()}>Go Back</button>
+        <button onClick={() => history.push('/agents')}>Contact Agents </button></div>
         </div>
         </header>
     )
