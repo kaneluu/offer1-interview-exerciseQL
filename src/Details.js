@@ -9,8 +9,8 @@ import './index.css';
 export const Details = () => {
     const history = useHistory();
     const [filterCity, setFilterCity] = useState("");
-    const [filterBed, setFilterBed] = useState('');
-    const [filterPrice, setFilterPrice] = useState('');
+    // const [filterBed, setFilterBed] = useState('');
+    // const [filterPrice, setFilterPrice] = useState('');
 
 
     return(
@@ -19,8 +19,8 @@ export const Details = () => {
         <h4>Filter by:</h4>
         <div className="filter" >
         <input placeholder="City" value={filterCity} onChange={(e) => setFilterCity(e.target.value)}/>
-        <input placeholder="# of bedrooms" value={filterBed} onChange={(e) => setFilterBed(e.target.value)}/>
-        <input placeholder="Price" value={filterPrice} onChange={(e) => setFilterPrice(e.target.value)}/>
+        {/* <input placeholder="# of bedrooms" value={filterBed} onChange={(e) => setFilterBed(e.target.value)}/>
+        <input placeholder="Price" value={filterPrice} onChange={(e) => setFilterPrice(e.target.value)}/> */}
         </div>    
         <div>
         {data.map((house, key) =>{
@@ -44,22 +44,22 @@ export const Details = () => {
                     return null
                 }
             }
-            else if(filterBed.length != 0){
-                if(house.property.numberBedrooms.valueOf(filterBed)){
-                return (
-                    <div>
-                <p><img className = "photo" src = {house.property.primaryImageUrl}></img></p>
-                <h4>${house.price + " "}  ({house.state})</h4>
-                <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
-                 located in {house.property.address.city}, {house.property.address.state}</p>
-                <p>Address: {house.property.address.addressLine1}, {house.property.address.addressLine2} {house.property.address.city}, {house.property.address.state}, {house.property.address.zip}</p>
-                <li>Type: {house.property.propertyType}</li>
-                <li>{house.property.numberBaths} Bathrooms</li>
-                <li>{house.property.numberBedrooms} Bedrooms</li>
-                <p></p>
-                    </div>
-                )}
-            }
+            // else if(filterBed.length != 0){
+            //     if(house.property.numberBedrooms.valueOf(filterBed)){
+            //     return (
+            //         <div>
+            //     <p><img className = "photo" src = {house.property.primaryImageUrl}></img></p>
+            //     <h4>${house.price + " "}  ({house.state})</h4>
+            //     <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
+            //      located in {house.property.address.city}, {house.property.address.state}</p>
+            //     <p>Address: {house.property.address.addressLine1}, {house.property.address.addressLine2} {house.property.address.city}, {house.property.address.state}, {house.property.address.zip}</p>
+            //     <li>Type: {house.property.propertyType}</li>
+            //     <li>{house.property.numberBaths} Bathrooms</li>
+            //     <li>{house.property.numberBedrooms} Bedrooms</li>
+            //     <p></p>
+            //         </div>
+            //     )}
+            // }
 
             return (
                 <div key = {key}>
