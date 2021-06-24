@@ -43,13 +43,25 @@
 // }
 import React, {Component} from 'react';
 import {Houses} from "./Houses.js";
+import {Details} from "./Details.js";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component{
   render(){
     return (
-      <div className = "App">Welcome to Offer1
-      <p>Here are all the available houses</p>
-        <Houses></Houses>
+      <div className = "App">
+       
+        <Router>
+        <Switch>
+          <Route path="/" exact>
+            <Houses/>
+          </Route>
+
+          <Route path="/Details" exact>
+            <Details/>
+          </Route>
+        </Switch>
+      </Router>
       </div>
     );
   }
