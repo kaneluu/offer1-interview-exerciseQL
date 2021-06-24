@@ -6,16 +6,17 @@ import { useHistory } from 'react-router-dom';
 
 
 
-export const Houses = (props) => {
+export const Houses = () => {
     const history = useHistory();
+
     return(
         <header>
             Welcome to Offer1
 
         <div className="App-body">
-      <p>Here are all the available houses</p>
-            <button onClick={() => history.push('/details')}> Views </button>
-
+            <h2>Where we help you to find the house you love!</h2>
+            <p>Here are all the available houses</p>
+            <button onClick={() => history.push('/details')}> Details </button>
         </div>
         </header>
     )
