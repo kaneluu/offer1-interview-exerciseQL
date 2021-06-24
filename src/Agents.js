@@ -13,6 +13,7 @@ export const Agents = () => {
             Welcome to Offer1
             <h2>Agents List</h2>
         <div>
+        {/* Display list of agents by mapping values */}
         {data.map((house, key) =>{
         return (
                 <div key = {key}>

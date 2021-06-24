@@ -13,6 +13,7 @@ export const Title = () => {
             Welcome to Offer1
             <h2>Title Companies</h2>
         <div>
+        {/* Display title companies by mapping values */}
         {data.map((house, key) =>{
         return (
                 <div key = {key}>

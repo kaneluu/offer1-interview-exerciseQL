@@ -12,7 +12,7 @@ class App extends Component{
   render(){
     return (
       <div className = "App">
-       
+       {/* Here we will set up the routes for different pages */}
         <Router>
         <Switch>
           <Route path="/" exact>
