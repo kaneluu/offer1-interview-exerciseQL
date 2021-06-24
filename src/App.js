@@ -3,6 +3,7 @@ import {Houses} from "./Houses.js";
 import {Details} from "./Details.js";
 import {Agents} from "./Agents.js";
 import {Escrow} from "./Escrow.js";
+import {Title} from "./Title.js";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component{
@@ -26,6 +27,9 @@ class App extends Component{
           </Route>
           <Route path="/Escrows" exact>
             <Escrow/>
+          </Route>
+          <Route path="/Titles" exact>
+            <Title/>
           </Route>
         </Switch>
       </Router>

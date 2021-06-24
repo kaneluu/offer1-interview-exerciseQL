@@ -8,7 +8,7 @@ export const Houses = () => {
     const history = useHistory();
 
     return(
-        <header>
+        <header className="App">
             Welcome to Offer1
 
         <div className="App-body">

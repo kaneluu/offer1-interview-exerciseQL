@@ -8,37 +8,61 @@ import './index.css';
 
 export const Details = () => {
     const history = useHistory();
-    const [filterCity, setFilterCity] = useState("");
+    const [searchText, setSearchText] = useState('');
+    const [filter, setFilter] = useState(data);
+
+    const handleChange = value => {
+        setSearchText(value);
+        filterData(value);
+    }
+
+    const filterData = value => {
+        const lowerCaseValue =  value.toLowerCase().trim();
+        if(!lowerCaseValue){
+            setFilter(data);
+        }
+        else{
+            const filteredData = data.filter(item => {
+                return Object.keys(item).some(key => {
+                    return item[key].toString().toLowerCase().includes(lowerCaseValue);
+                })
+            });
+            setFilter(filteredData);
+        }
+    }
 
     return(
         <header>
             Welcome to Offer1
-        <h4>Filter by:</h4>
         <div className="filter" >
-        <input placeholder="City" value={filterCity} onChange={(e) => setFilterCity(e.target.value)}/>
+        <input
+            type = "text"
+            placeholder="Type to filter" 
+            value={searchText} 
+            onChange={(e) => handleChange(e.target.value)}/>
         </div>    
         <div>
-        {data.map((house, key) =>{
-            if(filterCity.length !== 0){
-                if(house.property.address.city.toLowerCase().startsWith(filterCity.toLowerCase())){
-                    return (
-                        <div>
-                    <p><img className = "photo" src = {house.property.primaryImageUrl} alt = ""></img></p>
-                    <h4>${house.price + " "}  ({house.state})</h4>
-                    <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
-                     located in {house.property.address.city}, {house.property.address.state}</p>
-                    <p>Address: {house.property.address.addressLine1}, {house.property.address.addressLine2} {house.property.address.city}, {house.property.address.state}, {house.property.address.zip}</p>
-                    <li>Type: {house.property.propertyType}</li>
-                    <li>{house.property.numberBaths} Bathrooms</li>
-                    <li>{house.property.numberBedrooms} Bedrooms</li>
-                    <p></p>
-                        </div>
-                    )
-                }
-                 else{
-                    return null
-                }
-            }
+        {filter.map((house, key) =>{
+            // if(filterCity.length !== 0){
+            //     if(house.property.address.city.toLowerCase().startsWith(filterCity.toLowerCase())){
+            //         return (
+            //             <div>
+            //         <p><img className = "photo" src = {house.property.primaryImageUrl} alt = ""></img></p>
+            //         <h4>${house.price + " "}  ({house.state})</h4>
+            //         <p>{house.property.description} with {house.property.squareFeet + " "}sqrt
+            //          located in {house.property.address.city}, {house.property.address.state}</p>
+            //         <p>Address: {house.property.address.addressLine1}, {house.property.address.addressLine2} {house.property.address.city}, {house.property.address.state}, {house.property.address.zip}</p>
+            //         <li>Type: {house.property.propertyType}</li>
+            //         <li>{house.property.numberBaths} Bathrooms</li>
+            //         <li>{house.property.numberBedrooms} Bedrooms</li>
+            //         <p></p>
+            //             </div>
+            //         )
+            //     }
+            //      else{
+            //         return null
+            //     }
+            // }
 
             return (
                 <div key = {key}>
@@ -56,8 +80,10 @@ export const Details = () => {
         })}
         <div className="filter"><button onClick={() => history.push('/')}>Main Page</button>
         <button onClick={() => history.push('/escrows')}>Escrow Companies </button>
+        <button onClick={() => history.push('/titles')}>Title Companies </button>
         <button onClick={() => history.push('/agents')}>Contact Agents </button></div>
         </div>
+        {filter.length === 0 && <span>No records found</span>}
         </header>
     )
 }
